@@ -4,6 +4,8 @@
 
 [参考](https://cloud.tencent.com/developer/article/1480983)
 
+[rocketmq 阿里云文档](https://help.aliyun.com/document_detail/167894.html?spm=a2c4g.11186623.6.542.4084d54cwZXcH9)
+
 ## pom
 
 [ali maven](https://maven.aliyun.com/mvn/search)
