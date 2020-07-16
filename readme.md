@@ -1,6 +1,6 @@
 # spring cloud stream
 
-[document](https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/2.2.0.RELEASE/spring-cloud-stream.html)
+[spring-cloud-stream 英文document](https://cloud.spring.io/spring-cloud-static/spring-cloud-stream/2.2.0.RELEASE/spring-cloud-stream.html)
 
 [参考](https://cloud.tencent.com/developer/article/1480983)
 
