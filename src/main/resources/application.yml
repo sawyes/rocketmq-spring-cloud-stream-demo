@@ -1,0 +1,61 @@
+server:
+  port: 9091
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/default?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: rocketmq-test-app
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+
+        bindings:
+
+          orderSourceOutput:
+            producer:
+              group: order-group
+
+          input1:
+            consumer:
+              # 表示input2消费带有tag1的消息
+              tags: tag1
+          input2:
+            consumer:
+              # 表示input2消费带有tag2或者tag3的消息
+              tags: tag2||tag3
+      bindings:
+        output:
+          destination: TestToptic
+        input:
+          destination: TestToptic
+          # rocketmq一定要设置group（随便写） 其他的mq可留空
+          group: binding-group
+
+        input1:
+          destination: TestToptic
+          group: binding-group1
+        input2:
+          destination: TestToptic
+          group: binding-group2
+
+        orderSourceInput:
+          destination: TopicOrder
+          group: order-group
+        orderSourceOutput:
+          destination: TopicOrder
+
+
+
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+  configuration:
+    call-setters-on-nulls: true #为true时表示查询字段返回值为null时也返回该字段，false时则不返回
+
